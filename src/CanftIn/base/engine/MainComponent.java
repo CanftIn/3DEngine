@@ -29,7 +29,7 @@ public class MainComponent {
 		isRunning = false;
 	}
 	
-	public void run() { 
+	private void run() { 
 		isRunning = true;
 		
 		int frames = 0;
@@ -84,12 +84,12 @@ public class MainComponent {
 		cleanUp();
 	}
 	
-	public void render() {
+	private void render() {
 		game.render();
 		Window.render();
 	}
 	
-	public void cleanUp() {
+	private void cleanUp() {
 		Window.dispose();
 	}
 	
