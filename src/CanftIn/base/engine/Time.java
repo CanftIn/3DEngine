@@ -2,7 +2,7 @@ package CanftIn.base.engine;
 
 public class Time {
 	
-	public static final long SECOND = 1000000000;
+	public static final long SECOND = 1000000000L;
 	
 	public static double delta;
 	
