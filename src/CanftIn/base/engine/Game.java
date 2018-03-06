@@ -7,6 +7,8 @@ public class Game {
 	private Mesh mesh;
 	private Shader shader;
 	
+	float temp = 0.0f;
+	
 	public Game() {
 		mesh = new Mesh();
 		shader = new Shader();
@@ -18,6 +20,8 @@ public class Game {
 		shader.addVertexShader(ResourceLoader.loadShader("basicVertex.vs"));
 		shader.addFragmentShader(ResourceLoader.loadShader("basicFragment.fs"));
 		shader.compileShader();
+		
+		shader.addUniform("uniformFloat");
 	}
 	
 	public void render() {
@@ -26,7 +30,9 @@ public class Game {
 	}
 	
 	public void update() {
+		temp += Time.getDelta();
 		
+		shader.setUniformf("uniformFloat", (float)Math.abs(Math.sin(temp)));
 	}
 
 	public void input() {
