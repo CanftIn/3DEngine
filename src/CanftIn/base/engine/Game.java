@@ -11,7 +11,7 @@ public class Game {
 	float temp = 0.0f;
 	
 	public Game() {
-		mesh = ResourceLoader.loadMesh("plane3.obj");//new Mesh();
+		mesh = ResourceLoader.loadMesh("box.obj");//new Mesh();
 		shader = new Shader();
 		
 //		Vertex[] vertices = new Vertex[] { new Vertex(new Vector3f(-1,-1,0)),
