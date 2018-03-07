@@ -4,7 +4,7 @@ Using Java to write a 3D Engine for exercising and reinforce my computer grahic 
 
 **Demo:**
 
-![camera](./screenshot/camera.png)
+<img src="./screenshot/camera.png" width = "400" height = "300" alt="camera" align=center />
 
 **Texture Demo(with some troubles):**
 
@@ -18,7 +18,7 @@ The zNear & zFar values define the distance between the camera position & the ne
 
 There is a good picture to discribe the perspective.
 
-![perspectiveNote1](./screenshot/perspectiveNote1.png)
+<img src="./screenshot/perspectiveNote1.png" width = "400" height = "300" alt="perspectiveNote1" align=center />
 
 ## TODO LIST
 - fix key press bug
