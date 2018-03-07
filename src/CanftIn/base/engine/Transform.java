@@ -1,6 +1,12 @@
 package CanftIn.base.engine;
 
 public class Transform {
+	
+	private static float zNear;
+	private static float zFar;
+	private static float width;
+	private static float height;
+	private static float fov;		//view angle
 
 	private Vector3f translation;
 	private Vector3f rotation;
@@ -20,6 +26,23 @@ public class Transform {
 		Matrix4f scaleMatrix = new Matrix4f().initScale(scale.getX(), scale.getY(), scale.getZ());
 		
 		return translationMatrix.mul(rotationMatrix.mul(scaleMatrix));
+	}
+	
+	public Matrix4f getProjectedTransformation()
+	{
+		Matrix4f transformationMatrix = getTransformation();
+		Matrix4f projectionMatrix = new Matrix4f().initProjection(fov, width, height, zNear, zFar);
+		
+		return projectionMatrix.mul(transformationMatrix);
+	}
+	
+	public static void setProjection(float fov, float width, float height, float zNear, float zFar)
+	{
+		Transform.fov = fov;
+		Transform.width = width;
+		Transform.height = height;
+		Transform.zNear = zNear;
+		Transform.zFar = zFar;
 	}
 	
 	public Vector3f getTranslation()
