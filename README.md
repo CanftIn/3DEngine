@@ -15,3 +15,7 @@ The zNear & zFar values define the distance between the camera position & the ne
 There is a good picture to discribe the perspective.
 
 ![perspectiveNote1](./screenshot/perspectiveNote1.png)
+
+## TODO LIST
+- fix key press bug
+- add lighting
