@@ -1,32 +1,53 @@
 package CanftIn.base.engine;
 
-import org.lwjgl.input.Keyboard;
-
 public class Game {
 	
 	private Mesh mesh;
 	private Shader shader;
 	private Transform transform;
+	private Texture texture;
 	private Camera camera;
 	
 	float temp = 0.0f;
 	
 	public Game() {
-		mesh = ResourceLoader.loadMesh("box.obj");//new Mesh();
+		mesh = new Mesh(); //ResourceLoader.loadMesh("box.obj");
+		texture = ResourceLoader.loadTexture("test.png");
 		shader = new Shader();
 		camera = new Camera();
 		
-//		Vertex[] vertices = new Vertex[] { new Vertex(new Vector3f(-1,-1,0)),
-//				  					   new Vertex(new Vector3f(0, 1, 0)),
-//				  					   new Vertex(new Vector3f(1, -1, 0)),
-//				  					   new Vertex(new Vector3f(0, -1, 1))};
-//		
-//		int[] indices = new int[] {0, 1, 3,
-//								   3, 1, 2,
-//								   2, 1, 0,
-//								   0, 2, 3};
-//		
-//		mesh.addVertices(vertices, indices);
+//		Vertex[] vertices = new Vertex[] {new Vertex(new Vector3f(-1,-1,0), new Vector2f(0,0)),
+//										new Vertex(new Vector3f(0,1,0), new Vector2f(0.5f,0)),
+//										new Vertex(new Vector3f(1,-1,0), new Vector2f(1.0f,0)),
+//										new Vertex(new Vector3f(0,-1,1), new Vector2f(0.5f,1.0f))};
+//						
+//		int[] indices = new int[] {3,1,0,
+//									2,1,3,
+//									0,1,2,
+//									0,2,3};
+		
+		Vertex[] vertices = new Vertex[] {new Vertex(new Vector3f(1,-1,-1), new Vector2f(0,0)),
+											new Vertex(new Vector3f(1,-1,1), new Vector2f(0.5f,0)),
+											new Vertex(new Vector3f(-1,-1,1), new Vector2f(1.0f,0)),
+											new Vertex(new Vector3f(-1,-1,-1), new Vector2f(0.5f,1.0f)),
+											new Vertex(new Vector3f(1,1,-1), new Vector2f(1.0f,0)),
+											new Vertex(new Vector3f(1,1,1), new Vector2f(0,1.0f)),
+											new Vertex(new Vector3f(-1,1,1), new Vector2f(0.5f,1.0f)),
+											new Vertex(new Vector3f(-1,1,-1), new Vector2f(0.5f,0))};
+
+		int[] indices = new int[] {1,2,3,
+									1,3,4,
+									5,8,7,
+									5,7,6,
+									1,5,6,
+									1,6,2,
+									2,6,7,
+									2,7,3,
+									3,7,8,
+									3,8,4,
+									5,1,4,
+									5,4,8};
+		mesh.addVertices(vertices, indices);
 		
 		Transform.setProjection(70f, Window.getWidth(), Window.getHeight(), 0.1f, 1000);
 		Transform.setCamera(camera);
@@ -42,6 +63,7 @@ public class Game {
 	public void render() {
 		shader.bind();
 		shader.setUniform("transform", transform.getProjectedTransformation());
+		texture.bind();
 		mesh.draw();
 	}
 	
