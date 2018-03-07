@@ -2,13 +2,9 @@
 
 Using Java to write a 3D Engine for exercising and reinforce my computer grahic knowledge.
 
-**First Shader Demo:**
+**Demo:**
 
-![firstShader](./screenshot/firstShader.png)
-
-**Projected Transformation Demo:**
-
-![perspectiveDemo](./screenshot/perspectiveDemo.png)
+![camera](./screenshot/camera.png)
 
 **About perspective zNear and zFar**
 
